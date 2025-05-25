@@ -22,8 +22,8 @@ SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 
 PRODUCT_URLS = [
-    "https://shop.amul.com/en/product/amul-kool-protein-milkshake-or-chocolate-180-ml-or-pack-of-30",
-    "https://shop.amul.com/en/product/amul-chocolate-whey-protein-34-g-or-pack-of-60-sachets",
+    "https://shop.amul.com/en/product/amul-high-protein-rose-lassi-200-ml-or-pack-of-30",
+    "https://shop.amul.com/en/product/amul-whey-protein-32-g-or-pack-of-60-sachets",
 ]
 
 #Your location
