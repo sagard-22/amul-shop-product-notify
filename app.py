@@ -1,4 +1,7 @@
 import os
+import sys
+import time
+import random
 import json
 import requests
 import smtplib
@@ -32,18 +35,20 @@ STORE = "telangana"
 HEADERS = {
     "Accept": "application/json, text/plain, */*",
     "Content-Type": "application/json",
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
     "Origin": "https://shop.amul.com",
     "Referer": "https://shop.amul.com/",
+    "base_url": PRODUCT_URLS[0],
+    "frontend": "1",
+    "tid": f"{int(time.time() * 1000)}:{random.randint(100, 999)}:{''.join(random.choices('abcdef0123456789', k=64))}"
 }
+
 
 session = requests.Session()
 
 # Extract product aliases
 PRODUCT_ALIASES = [url.rstrip('/').split('/')[-1] for url in PRODUCT_URLS]
 
-
-# === Utility Functions ===
 
 def set_preferences(store: str) -> bool:
     """Set store preferences on the website."""
@@ -98,8 +103,12 @@ def send_email(product_name: str) -> None:
 
 def check_products_and_notify() -> None:
     """Main workflow to check products and notify if available."""
+    # Step 1: Trigger session cookies via API call
+    session.get("https://shop.amul.com/api/1/entity/ms.homepage", headers=HEADERS)
+
     if not set_preferences(STORE):
         print("[FATAL] Exiting due to preference setting failure.")
+        sys.exit(1) 
         return
 
     for product_alias in PRODUCT_ALIASES:
