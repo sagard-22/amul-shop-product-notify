@@ -25,12 +25,18 @@ SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 
 PRODUCT_URLS = [
-    "https://shop.amul.com/en/product/amul-high-protein-rose-lassi-200-ml-or-pack-of-30",
-    # "https://shop.amul.com/en/product/amul-whey-protein-32-g-or-pack-of-60-sachets",
+    #"https://shop.amul.com/en/product/amul-high-protein-rose-lassi-200-ml-or-pack-of-30",
+    "https://shop.amul.com/en/product/amul-chocolate-whey-protein-gift-pack-34-g-or-pack-of-10-sachets",
+    "https://shop.amul.com/en/product/amul-chocolate-whey-protein-34-g-or-pack-of-30-sachets",
+    "http://shop.amul.com/en/product/amul-chocolate-whey-protein-34-g-or-pack-of-60-sachets",
+    #"https://shop.amul.com/en/product/amul-high-protein-plain-lassi-200-ml-or-pack-of-30",
+    #"https://shop.amul.com/en/product/amul-high-protein-buttermilk-200-ml-or-pack-of-30",
+    #"https://shop.amul.com/en/product/amul-whey-protein-gift-pack-32-g-or-pack-of-10-sachets",
+    #"https://shop.amul.com/en/product/amul-whey-protein-32-g-or-pack-of-30-sachets",
 ]
 
 #Your location
-STORE = "telangana"
+STORE = "mumbai-br"
 
 HEADERS = {
     "Accept": "application/json, text/plain, */*",
